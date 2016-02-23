@@ -9,3 +9,19 @@ app.controller("Homecontroller", function($scope, $http){
       $scope.error = err;
   });
 });
+
+//fuctionen um die Geschäftlichen bzw Privaten gefahren
+//Kilometer zu berechnen und das feld zu füllen in er Tabelle
+$scope.privateKm = function(fahrt){
+  if(fahrt.privat){
+    return fahrt.kmEnde - fahrt.kmStart;
+  }
+  return 0;
+}
+
+$scope.geschaeftlicheKm = function(fahrt){
+  if(fahrt.privat){
+  return 0;
+  }
+  return fahrt.kmEnde - fahrt.kmStart;
+}
